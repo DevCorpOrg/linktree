@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #00F5D4;
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 10px 0;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.icons a img {
+    width: 30px;
+    height: 30px;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    background-color: #0a9396;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative; /* Added for absolute positioning of share dots */
+    overflow: hidden; /* Ensures content doesn't spill out of rounded corners */
+}
+
+.button:hover {
+    background-color: #028090;
+    transform: translateY(-2px);
+}
+
+.button img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevents the icon from shrinking */
+}
+
+.button-text {
+    flex-grow: 1;
+    text-align: left;
+    margin-right: 30px; /* Makes room for the share dots */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

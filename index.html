@@ -1,65 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kit Baroness, DBA</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #00F5D4; /* Adjust the background color to match Linktree's color scheme */
-            text-align: center;
-            color: #333;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .profile-pic {
-            width: 150px;
-            border-radius: 50%;
-            margin-top: 20px;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin: 10px 0;
-        }
-        .icons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .icons a img {
-            width: 30px;
-            height: 30px;
-        }
-        .button-container {
-            margin-top: 20px;
-        }
-        .button {
-            display: block;
-            background-color: #0a9396;
-            color: white;
-            text-decoration: none;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #028090;
-        }
-        .button img {
-            width: 30px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kit Baroness, DBA</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/carousel.css">
+        <link rel="stylesheet" href="css/sharedots.css">
+        <script src="js/carousel.js"></script>
+        <script src="js/sharedots.js" defer></script>
+    </head>
 <body>
     <div class="container">
         <!-- Profile Picture -->
@@ -75,15 +25,55 @@
             <a href="https://twitch.tv/kitbaroness" target="_blank"><img src="https://img.icons8.com/?size=50&id=18104&format=png" alt="Twitch"></a>
         </div>
 
+        <div class="shop-carousel">
+            <div class="carousel-container">
+                <div class="shop-item"><img src="https://ugc.production.linktr.ee/3acaa7d1-7721-4191-b077-f5a2344fdda3_image.png?io=true&size=square-fit" alt="CyberHOL"></div>
+                <div class="shop-item"><img src="https://ugc.production.linktr.ee/7faf03a2-639f-41ef-8db0-c5fdf79582cb_image.png?io=true&size=square-fit" alt="Cryptoversus"></div>
+                <div class="shop-item"><img src="https://ugc.production.linktr.ee/2ba82a08-cccb-4584-bb3b-94d8283ab393_image.png?io=true&size=square-fit" alt="DegenVets"></div>
+            </div>
+            <button class="carousel-button prev">&lt;</button>
+            <button class="carousel-button next">&gt;</button>
+        </div>
+        <p class="shop-text">Shop</p>
+        <p class="products-count">3 Products</p>
+
         <!-- Link Buttons -->
         <div class="button-container">
-            <a href="http://kitbaroness.cc/" class="button"><img src="" alt="Icon">Kit Baroness Consultation</a>
-            <a href="https://baroness.medium.com/" class="button"><img src="" alt="Icon">Kit Baroness – Medium</a>
-            <a href="https://http://ravensong.com/" class="button"><img src="" alt="Icon">Building Builders | Home</a>
-            <a href="http://cryptoversus.io/" class="button"><img src="" alt="Icon">Crypto Versus | Web2 Bundle into Web3</a>
-            <a href="http://acmewerx.com/" class="button"><img src="" alt="Icon">ACMEWERX Services</a>
-            <a href="https://www.github.com/klllj0ylife" class="button"><img src="" alt="Icon">GitHub Alter Ego</a>
-            <a href="hhttp://degenvets.com/" class="button"><img src="" alt="Icon">Degen Vets powered by DevCorp</a>
+            <a href="http://kitbaroness.cc/" class="button">
+                <img src="https://booking.builderall.com/storage/avatar/298692000ef0c8eccfc2e9da2a01628a.png" alt="Icon">
+                <span class="button-text">Kit Baroness Consultation</span>
+                <span class="share-dots">&#8942;</span>
+            </a>
+            <a href="https://baroness.medium.com/" class="button">
+                <img src="https://pbs.twimg.com/media/GXLkx3AXoAAL0zQ?format=jpg&name=small" alt="Icon">
+                <span class="button-text">Kit Baroness – Medium</span>
+                <span class="share-dots">&#8942;</span>
+            </a>
+            <a href="http://ravensong.com/" class="button">
+                <img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12678196.png" alt="Icon">
+                <span class="button-text">Building Builders | Home</span>
+                <span class="share-dots">&#8942;</span>
+            </a>
+            <a href="http://cryptoversus.io/" class="button">
+                <img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12603172.svg" alt="Icon">
+                <span class="button-text">Crypto Versus | Web2 Bundle into Web3</span>
+                <span class="share-dots">&#8942;</span>
+            </a>
+            <a href="http://acmewerx.com/" class="button">
+                <img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12539760.svg" alt="Icon">
+                <span class="button-text">ACMEWERX Services</span>
+                <span class="share-dots">&#8942;</span>
+            </a>
+            <a href="https://www.github.com/klllj0ylife" class="button">
+                <img src="https://avatars.githubusercontent.com/u/162865471?v=4" alt="Icon">
+                <span class="button-text">GitHub Alter Ego</span>
+                <span class="share-dots">&#8942;</span>
+            </a>
+            <a href="http://degenvets.com/" class="button">
+                <img src="https://avatars.githubusercontent.com/u/180209438?s=400&u=1b338abb15b69eaa77051408fd0c89efc26964b5&v=4" alt="Icon">
+                <span class="button-text">Degen Vets powered by DevCorp</span>
+                <span class="share-dots">&#8942;</span>
+            </a>
         </div>
     </div>
 </body>

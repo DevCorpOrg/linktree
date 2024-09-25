@@ -1,0 +1,54 @@
+/* sharedots.css */
+
+.button {
+    position: relative;
+    padding-right: 40px; /* Make room for the dots */
+}
+
+.share-dots {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    transition: color 0.3s ease;
+}
+
+.share-dots:hover {
+    color: white; /* Full white on hover */
+}
+
+/* Optional: Add a subtle separation line */
+.share-dots::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.share-menu {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px;
+    z-index: 1000;
+}
+
+.share-menu a {
+    display: block;
+    padding: 5px 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.share-menu a:hover {
+    background: #f0f0f0;
+}

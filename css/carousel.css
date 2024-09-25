@@ -1,0 +1,64 @@
+/* carousel.css */
+
+.shop-carousel {
+    width: 100%;
+    max-width: 600px; /* Increased to accommodate larger images */
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.shop-item {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-item img {
+    width: 160px; /* Doubled from 80px */
+    height: 160px; /* Doubled from 80px */
+    object-fit: cover;
+    border-radius: 20px; /* Increased for better proportion */
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px; /* Slightly larger buttons */
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px; /* Larger font for better visibility */
+}
+
+.carousel-button.prev {
+    left: 15px;
+}
+
+.carousel-button.next {
+    right: 15px;
+}
+
+.shop-text {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #000;
+    text-align: center;
+    font-size: 1.2em; /* Slightly larger text */
+}
+
+.products-count {
+    font-size: 1em;
+    color: #666;
+    margin-top: 0;
+    text-align: center;
+}
