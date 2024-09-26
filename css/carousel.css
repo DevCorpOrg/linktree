@@ -1,64 +1,44 @@
-/* carousel.css */
-
 .shop-carousel {
     width: 100%;
-    max-width: 600px; 
+    max-width: 600px;
     margin: 20px auto;
-    position: relative;
-    overflow: hidden;
+    padding: 20px;
+    background-color: rgba(0, 255, 255, 0.2);
+    border-radius: 20px;
+    box-sizing: border-box;
 }
 
 .carousel-container {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .shop-item {
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1;
+    max-width: 32%;
 }
 
 .shop-item img {
-    width: 160px;
-    height: 160px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 20px; 
-}
-
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px; 
-    cursor: pointer;
-    z-index: 10;
-    font-size: 18px; 
-}
-
-.carousel-button.prev {
-    left: 15px;
-}
-
-.carousel-button.next {
-    right: 15px;
 }
 
 .shop-text {
     font-weight: bold;
-    margin-bottom: 5px;
-    color: #000;
-    text-align: center;
-    font-size: 1.2em; 
+    margin: 10px 0 5px;
+    color: #333;
 }
 
 .products-count {
-    font-size: 1em;
+    font-size: 0.9em;
     color: #666;
-    margin-top: 0;
-    text-align: center;
+    margin: 0;
+}
+
+.carousel-button {
+    display: none;
 }

@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #00F5D4;
+    background: linear-gradient(to bottom, #4fffff, #5b6161);
+    min-height: 100vh;
     text-align: center;
     color: #333;
 }
@@ -37,7 +38,11 @@ h1 {
 }
 
 .button-container {
-    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
 .button {
@@ -46,13 +51,14 @@ h1 {
     background-color: #0a9396;
     color: white;
     text-decoration: none;
-    padding: 15px;
+    padding: 10px;
     margin: 10px 0;
-    border-radius: 20px;
+    border-radius: 50px;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: relative; /* Added for absolute positioning of share dots */
-    overflow: hidden; /* Ensures content doesn't spill out of rounded corners */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
 }
 
 .button:hover {
@@ -61,17 +67,56 @@ h1 {
 }
 
 .button img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     margin-right: 10px;
-    flex-shrink: 0; /* Prevents the icon from shrinking */
+    flex-shrink: 0;
 }
 
 .button-text {
     flex-grow: 1;
     text-align: left;
-    margin-right: 30px; /* Makes room for the share dots */
-    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.3;
+    padding-right: 30px; 
+    white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
+
+.share-dots {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .button-container {
+        padding: 0 10px;
+    }
+
+    .button {
+        padding: 8px;
+    }
+
+    .button img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .button-text {
+        font-size: 12px;
+    }
+
+    .share-dots {
+        right: 10px;
+    }
 }

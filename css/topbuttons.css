@@ -1,0 +1,64 @@
+.top-left,
+.top-right {
+    position: fixed;
+    top: 20px;
+    z-index: 1000;
+}
+
+.top-left {
+    left: 50px;
+}
+
+.top-right {
+    right: 50px;
+}
+
+.subscribe-button,
+.share-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-button:hover,
+.share-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.subscribe-button i,
+.share-button i {
+    color: white;
+    font-size: 18px;
+}
+
+.container {
+    padding-top: 80px;
+}
+
+@media (max-width: 600px) {
+    .top-left,
+    .top-right {
+        top: 10px;
+    }
+    
+    .top-left {
+        left: 10px;
+    }
+    
+    .top-right {
+        right: 10px;
+    }
+    
+    .subscribe-button,
+    .share-button {
+        width: 70px;
+        height: 70px;
+    }
+}

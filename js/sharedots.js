@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function shareLink(link, target) {
-    // First, try to use the Web Share API
     if (navigator.share) {
         navigator.share({
             title: 'Check out this link',
@@ -24,25 +23,21 @@ function shareLink(link, target) {
             fallbackShare(link, target);
         });
     } else {
-        // If Web Share API is not supported, use the fallback
         fallbackShare(link, target);
     }
 }
 
 function fallbackShare(link, target) {
-    // Copy to clipboard
     navigator.clipboard.writeText(link).then(() => {
         alert('Link copied to clipboard!');
     }).catch(err => {
         console.error('Failed to copy:', err);
     });
 
-    // Show custom share menu
     showShareMenu(link, target);
 }
 
 function showShareMenu(link, target) {
-    // Remove any existing share menu
     const existingMenu = document.querySelector('.share-menu');
     if (existingMenu) {
         existingMenu.remove();
@@ -56,16 +51,15 @@ function showShareMenu(link, target) {
         <a href="https://www.linkedin.com/shareArticle?url=${encodeURIComponent(link)}" target="_blank">Share on LinkedIn</a>
     `;
 
-    // Position the menu near the clicked dots
+
     const rect = target.getBoundingClientRect();
     menu.style.position = 'absolute';
     menu.style.top = `${rect.bottom + window.scrollY}px`;
     menu.style.left = `${rect.left + window.scrollX}px`;
 
-    // Add the menu to the DOM
     document.body.appendChild(menu);
 
-    // Close the menu when clicking outside
+
     document.addEventListener('click', closeShareMenu);
 }
 
