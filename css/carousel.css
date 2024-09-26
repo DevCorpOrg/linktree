@@ -2,21 +2,22 @@
     width: 100%;
     max-width: 600px;
     margin: 20px auto;
-    padding: 20px;
-    background-color: rgba(0, 255, 255, 0.2);
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .carousel-container {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    transition: transform 0.5s ease;
 }
 
 .shop-item {
-    flex: 1;
-    max-width: 32%;
+    flex: 0 0 calc(33.333% - 10px);
+    max-width: calc(33.333% - 10px);
+    margin-right: 10px;
 }
 
 .shop-item img {
@@ -37,8 +38,4 @@
     font-size: 0.9em;
     color: #666;
     margin: 0;
-}
-
-.carousel-button {
-    display: none;
 }

@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/sharedots.css">
     <link rel="stylesheet" href="css/topbuttons.css">
+    <link rel="stylesheet" href="css/shop.css">
     <script src="js/carousel.js"></script>
     <script src="js/sharedots.js" defer></script>
     <script src="js/topbuttons.js" defer></script>
+    <script src="js/shop.js" defer></script>
 </head>
 <body>
     <div class="top-left">
@@ -25,11 +27,9 @@
     </div>
 
     <div class="container">
-        <!-- Profile Picture -->
         <img src="https://ugc.production.linktr.ee/753e4b1a-c2e0-47c1-ba64-0829fc75d160_1000000486.jpeg?io=true&size=avatar-v3_0" alt="Kit Baroness, DBA" class="profile-pic">
         <h1>Kit Baroness, DBA</h1>
 
-        <!-- Social Media Icons -->
         <div class="icons">
             <a href="https://instagram.com/kitbaroness" target="_blank"><img src="https://img.icons8.com/?size=50&id=32292&format=png" alt="Instagram"></a>
             <a href="https://github.com/kitbaroness" target="_blank"><img src="https://img.icons8.com/?size=50&id=12598&format=png" alt="GitHub"></a>
@@ -38,97 +38,123 @@
             <a href="https://twitch.tv/kitbaroness" target="_blank"><img src="https://img.icons8.com/?size=50&id=18104&format=png" alt="Twitch"></a>
         </div>
 
-        <div class="shop-carousel">
-            <div class="carousel-container">
-                <div class="shop-item"><a href="https://cyberhol.com"><img src="https://ugc.production.linktr.ee/3acaa7d1-7721-4191-b077-f5a2344fdda3_image.png?io=true&size=square-fit" alt="CyberHOL"></a></div>
-                <div class="shop-item"><a href="https://cryptoversus.io"><img src="https://ugc.production.linktr.ee/7faf03a2-639f-41ef-8db0-c5fdf79582cb_image.png?io=true&size=square-fit" alt="Cryptoversus"></a></div>
-                <div class="shop-item"><a href="https://degenvets.com"><img src="https://ugc.production.linktr.ee/2ba82a08-cccb-4584-bb3b-94d8283ab393_image.png?io=true&size=square-fit" alt="DegenVets"></a></div>
+        <div class="toggle-container">
+            <button class="toggle-button active" data-view="links">Links</button>
+            <button class="toggle-button" data-view="shop">Shop</button>
+        </div>
+
+        <div id="links-view">
+            <div class="shop-carousel">
+                <div class="carousel-container">
+                    <div class="shop-item"><a href="https://cyberhol.com"><img src="https://ugc.production.linktr.ee/3acaa7d1-7721-4191-b077-f5a2344fdda3_image.png?io=true&size=square-fit" alt="CyberHOL"></a></div>
+                    <div class="shop-item"><a href="https://cryptoversus.io"><img src="https://ugc.production.linktr.ee/7faf03a2-639f-41ef-8db0-c5fdf79582cb_image.png?io=true&size=square-fit" alt="Cryptoversus"></a></div>
+                    <div class="shop-item"><a href="https://degenvets.com"><img src="https://ugc.production.linktr.ee/2ba82a08-cccb-4584-bb3b-94d8283ab393_image.png?io=true&size=square-fit" alt="DegenVets"></a></div>
+                </div>
             </div>
-            <button class="carousel-button prev">&lt;</button>
-            <button class="carousel-button next">&gt;</button>
+            <p class="shop-text">I Did Dis</p>
+            <p class="products-count">Projects & Collaborations</p>
+
+            <div class="button-container">
+                <a href="http://kitbaroness.cc/" class="button">
+                    <img src="https://booking.builderall.com/storage/avatar/298692000ef0c8eccfc2e9da2a01628a.png" alt="Icon">
+                    <span class="button-text">Kit Baroness Consultation</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+
+                <h3>My Collections</h3>
+                <a href="https://app.buidlbox.io/buidler/kitbaroness" class="button">
+                    <img src="https://cdn.buidlbox.io/user/8b4fa407-0d05-487b-b188-8f94f2190b20/avatar/avatar.blob?t=1727319718904" alt="Icon">
+                    <span class="button-text">Join a hackathon. Find a team. Win prizes.</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+                <a href="https://baroness.medium.com/" class="button">
+                    <img src="https://pbs.twimg.com/media/GXLkx3AXoAAL0zQ?format=jpg&name=small" alt="Icon">
+                    <span class="button-text">Kit Baroness – Medium</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+                <a href="http://ravensong.com/" class="button">
+                    <img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12678196.png" alt="Icon">
+                    <span class="button-text">Building Builders | Home</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+                <a href="http://cryptoversus.io/" class="button">
+                    <img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12603172.svg" alt="Icon">
+                    <span class="button-text">Crypto Versus | Web2 Bundle into Web3</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+                <a href="http://acmewerx.com/" class="button">
+                    <img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12539760.svg" alt="Icon">
+                    <span class="button-text">ACMEWERX Services</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+                <a href="https://www.github.com/klllj0ylife" class="button">
+                    <img src="https://avatars.githubusercontent.com/u/162865471?v=4" alt="Icon">
+                    <span class="button-text">GitHub Alter Ego</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+                <a href="http://degenvets.com/" class="button">
+                    <img src="https://avatars.githubusercontent.com/u/180209438?s=400&u=1b338abb15b69eaa77051408fd0c89efc26964b5&v=4" alt="Icon">
+                    <span class="button-text">Degen Vets powered by DevCorp</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+
+                <h3>Partners & Collaborations</h3>
+                <a href="https://www.voxelxnetwork.com/" class="button">
+                    <img src="https://www.voxelxnetwork.com/images/voxel-logo.svg" alt="Icon">
+                    <span class="button-text">The best way to predict the future is to build it, <br>
+                        Join the Voxel X Revolution</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+                <a href="https://cyberhol.com/" class="button">
+                    <img src="https://pbs.twimg.com/profile_banners/1822114456660516864/1723288931/600x200" alt="Icon">
+                    <span class="button-text">Patch all your holes</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+                <a href="https://zu.ventures/#connect" class="button">
+                    <img src="https://pbs.twimg.com/profile_images/1678518338857705474/zg4Ofedu_400x400.jpg" alt="zouhair el helou">
+                    <span class="button-text">zouhair el helou | zouhair el helou</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+
+                <h3>Referral Links</h3>
+                <a href="https://my.hellohelium.com/ref/9QC2AZ5" class="button">
+                    <img src="https://framerusercontent.com/images/i3oJvwkQwnxe3hCpedYuhgTO6B8.png?scale-down-to=512" alt="Icon">
+                    <span class="button-text">A phone plan that rewards you and your community for using it.<br>
+                        Rise above with Helium Mobile's Unlimited Phone Plan.</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+                <a href="https://wtfhappenedin1971.com/" class="button">
+                    <img src="https://wtfhappenedin1971.com/wp-content/uploads/2020/06/img_0540-1_arrow.jpg?w=1024" alt="Icon">
+                    <span class="button-text">WTF Happened In 1971?</span>
+                    <span class="share-dots">&#8942;</span>
+                </a>
+            </div>
         </div>
-        <p class="shop-text">I Did Dis</p>
-        <p class="products-count">Projects & Collaborations</p>
 
-        <!-- Link Buttons -->
-        <div class="button-container">
-            <a href="http://kitbaroness.cc/" class="button">
-                <img src="https://booking.builderall.com/storage/avatar/298692000ef0c8eccfc2e9da2a01628a.png" alt="Icon">
-                <span class="button-text">Kit Baroness Consultation</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-
-            <h3>My Collections</h3>
-            <a href="https://app.buidlbox.io/buidler/kitbaroness" class="button">
-                <img src="https://cdn.buidlbox.io/user/8b4fa407-0d05-487b-b188-8f94f2190b20/avatar/avatar.blob?t=1727319718904" alt="Icon">
-                <span class="button-text">Join a hackathon. Find a team. Win prizes.</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-            <a href="https://baroness.medium.com/" class="button">
-                <img src="https://pbs.twimg.com/media/GXLkx3AXoAAL0zQ?format=jpg&name=small" alt="Icon">
-                <span class="button-text">Kit Baroness – Medium</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-            <a href="http://ravensong.com/" class="button">
-                <img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12678196.png" alt="Icon">
-                <span class="button-text">Building Builders | Home</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-            <a href="http://cryptoversus.io/" class="button">
-                <img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12603172.svg" alt="Icon">
-                <span class="button-text">Crypto Versus | Web2 Bundle into Web3</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-            <a href="http://acmewerx.com/" class="button">
-                <img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12539760.svg" alt="Icon">
-                <span class="button-text">ACMEWERX Services</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-            <a href="https://www.github.com/klllj0ylife" class="button">
-                <img src="https://avatars.githubusercontent.com/u/162865471?v=4" alt="Icon">
-                <span class="button-text">GitHub Alter Ego</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-            <a href="http://degenvets.com/" class="button">
-                <img src="https://avatars.githubusercontent.com/u/180209438?s=400&u=1b338abb15b69eaa77051408fd0c89efc26964b5&v=4" alt="Icon">
-                <span class="button-text">Degen Vets powered by DevCorp</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-        </div>
-
-        <div class="button-container">
-            <h3>Partners & Collaborations</h3>
-            <a href="https://www.voxelxnetwork.com/" class="button">
-                <img src="https://www.voxelxnetwork.com/images/voxel-logo.svg" alt="Icon">
-                <span class="button-text">The best way to predict the future is to build it, <br>
-                    Join the Voxel X Revolution</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-            <a href="https://cyberhol.com/" class="button">
-                <img src="https://pbs.twimg.com/profile_banners/1822114456660516864/1723288931/600x200" alt="Icon">
-                <span class="button-text">Patch all your holes</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-            <a href="https://zu.ventures/#connect" class="button">
-                <img src="https://pbs.twimg.com/profile_images/1678518338857705474/zg4Ofedu_400x400.jpg" alt="zouhair el helou">
-                <span class="button-text">zouhair el helou | zouhair el helou</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-        </div>
-
-        <div class="button-container">
-            <h3>Referral Links</h3>
-            <a href="https://my.hellohelium.com/ref/9QC2AZ5" class="button">
-                <img src="https://framerusercontent.com/images/i3oJvwkQwnxe3hCpedYuhgTO6B8.png?scale-down-to=512" alt="Icon">
-                <span class="button-text">A phone plan that rewards you and your community for using it.<br>
-                    Rise above with Helium Mobile’s Unlimited Phone Plan.</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
-            <a href="https://wtfhappenedin1971.com/" class="button">
-                <img src="https://wtfhappenedin1971.com/wp-content/uploads/2020/06/img_0540-1_arrow.jpg?w=1024" alt="Icon">
-                <span class="button-text">WTF Happened In 1971?</span>
-                <span class="share-dots">&#8942;</span>
-            </a>
+        <div id="shop-view" style="display: none;">
+            <div class="shop-grid">
+                <div class="shop-item">
+                    <img src="https://ugc.production.linktr.ee/3acaa7d1-7721-4191-b077-f5a2344fdda3_image.png?io=true&size=square-fit" alt="CyberHOL">
+                    <div class="shop-item-content">
+                        <div class="shop-item-title">Penetration Testing Identify vulnerabilities in your systems before...</div>
+                        <div class="shop-item-price">$5,000</div>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <img src="https://ugc.production.linktr.ee/7faf03a2-639f-41ef-8db0-c5fdf79582cb_image.png?io=true&size=square-fit" alt="Cryptoversus">
+                    <div class="shop-item-content">
+                        <div class="shop-item-title">Crypto Versus | Web2 Bundle into Web3</div>
+                        <div class="shop-item-price">$5,000</div>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <img src="https://ugc.production.linktr.ee/2ba82a08-cccb-4584-bb3b-94d8283ab393_image.png?io=true&size=square-fit" alt="DegenVets">
+                    <div class="shop-item-content">
+                        <div class="shop-item-title">Degen Vets | "The Original Degenerates of the World"</div>
+                        <div class="shop-item-price"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
