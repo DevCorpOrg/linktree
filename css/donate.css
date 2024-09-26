@@ -1,0 +1,35 @@
+.donate-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.donate-container h3 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+#crypto-select, #amount-input, #donate-button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+#donate-button {
+    background-color: #9945FF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#donate-button:hover {
+    background-color: #7F3BD0;
+}

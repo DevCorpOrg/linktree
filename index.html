@@ -13,6 +13,7 @@
     <script src="js/sharedots.js" defer></script>
     <script src="js/topbuttons.js" defer></script>
     <script src="js/shop.js" defer></script>
+    <script src="js/donate.js"></script>
 </head>
 <body>
     <div class="top-left">
@@ -156,6 +157,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="donate-container">
+            <h3>Support this project</h3>
+            <select id="crypto-select">
+                <option value="SOL">SOL</option>
+                <option value="USDC">USDC</option>
+                <option value="BONK">BONK</option>
+                <!-- Add more Solana-based cryptocurrencies as needed -->
+            </select>
+            <input type="number" id="amount-input" placeholder="Amount" step="0.01" min="0">
+            <button id="donate-button">Donate</button>
+        </div>
     </div>
+
+    
 </body>
 </html>
