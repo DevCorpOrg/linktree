@@ -22,11 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchExchangeRates() {
         try {
-            // Fetch rates for major cryptocurrencies
             const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana,ethereum,matic-network,bitcoin,usd-coin&vs_currencies=usd');
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
             const data = await response.json();
             
             exchangeRates = {
@@ -37,14 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 'USDC': data['usd-coin'].usd
             };
 
-            // Fetch MMOSH price using GeckoTerminal API
             const mmoshPrice = await fetchMMOSHPrice();
-            if (mmoshPrice !== null) {
-            exchangeRates['MMOSH'] = mmoshPrice;
-        } else {
-            console.warn('MMOSH price could not be fetched');
-            exchangeRates['MMOSH'] = .00035; // Set a default value or handle accordingly
-        }
+            exchangeRates['MMOSH'] = mmoshPrice ?? 0.00035;
 
             updateEquivalentValue();
         } catch (error) {
@@ -56,9 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchMMOSHPrice() {
         try {
             const response = await fetch('https://api.geckoterminal.com/api/v2/tokens/solana/FwfrwnNVLGyS8ucVjWvyoRdFDpTY8w6ACMAxJ4rqGUSS', {
-                headers: {
-                    'Accept': 'application/json;version=20230302'
-                }
+                headers: { 'Accept': 'application/json;version=20230302' }
             });
             const data = await response.json();
             return parseFloat(data.data.attributes.price_usd);
@@ -95,30 +83,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let donationLink;
+        if (!walletAddresses[blockchain]) {
+            alert('Unsupported blockchain selected');
+            return;
+        }
+
         switch(blockchain) {
             case 'SOL':
                 if (crypto === 'SOL') {
                     donationLink = `solana:${walletAddresses.SOL}?amount=${amount}`;
+                } else if (tokenAddresses[`${crypto}-SOL`]) {
+                    donationLink = `solana:${walletAddresses.SOL}/transfer?asset=${tokenAddresses[`${crypto}-SOL`]}&amount=${amount}`;
                 } else {
-                    donationLink = `solana:${walletAddresses.SOL}/transfer?asset=${tokenAddresses[`${crypto}-${blockchain}`]}&amount=${amount}`;
+                    alert('Unsupported cryptocurrency for SOL selected');
+                    return;
                 }
                 break;
             case 'ETH':
                 if (crypto === 'USDC') {
                     donationLink = `ethereum:${tokenAddresses['USDC-ETH']}/transfer?address=${walletAddresses.ETH}&uint256=${amount * 1e6}`;
-                } else {
+                } else if (crypto === 'ETH') {
                     donationLink = `ethereum:${walletAddresses.ETH}?value=${Web3.utils.toWei(amount, 'ether')}`;
+                } else {
+                    alert('Unsupported cryptocurrency for ETH selected');
+                    return;
                 }
                 break;
             case 'MATIC':
                 if (crypto === 'USDC') {
                     donationLink = `ethereum:${tokenAddresses['USDC-MATIC']}/transfer?address=${walletAddresses.MATIC}&uint256=${amount * 1e6}&chainId=137`;
-                } else {
+                } else if (crypto === 'MATIC') {
                     donationLink = `ethereum:${walletAddresses.MATIC}?value=${Web3.utils.toWei(amount, 'ether')}&chainId=137`;
+                } else {
+                    alert('Unsupported cryptocurrency for MATIC selected');
+                    return;
                 }
                 break;
             case 'BTC':
-                donationLink = `bitcoin:${walletAddresses.BTC}?amount=${amount}`;
+                if (crypto === 'BTC') {
+                    donationLink = `bitcoin:${walletAddresses.BTC}?amount=${amount}`;
+                } else {
+                    alert('Unsupported cryptocurrency for BTC selected');
+                    return;
+                }
                 break;
             default:
                 alert('Unsupported blockchain selected');
