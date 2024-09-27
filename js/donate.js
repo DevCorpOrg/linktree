@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const donateButton = document.getElementById('donate-button');
+    const modal = document.getElementById('donate-modal');
+    const closeButton = document.getElementsByClassName('close')[0];
+    const confirmButton = document.getElementById('confirm-donate');
     const cryptoSelect = document.getElementById('crypto-select');
     const amountInput = document.getElementById('amount-input');
     const equivalentValue = document.getElementById('equivalent-value');
@@ -72,6 +75,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     amountInput.addEventListener('input', updateEquivalentValue);
     cryptoSelect.addEventListener('change', updateEquivalentValue);
+
+    donateButton.onclick = () => {
+        modal.style.display = 'block';
+    }
+
+    closeButton.onclick = () => {
+        modal.style.display = 'none';
+    }
+
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    confirmButton.onclick = () => {
+        const amount = amountInput.value;
+        const crypto = cryptoSelect.value;
+        
+        if (!amount || isNaN(amount) || amount <= 0) {
+            alert('Please enter a valid amount');
+            return;
+        }
+
+        let donationLink;
+        if (crypto === 'SOL') {
+            donationLink = `solana:${solanaAddress}?amount=${amount}&reference=OPTIONAL_REFERENCE&label=Donate%20to%20Project&message=Thank%20you%20for%20supporting%20this%20project!`;
+        } else if (crypto === 'USDC') {
+            donationLink = `solana:${solanaAddress}/transfer?asset=${usdcAddress}&amount=${amount}&reference=OPTIONAL_REFERENCE&label=Donate%20to%20Project&message=Thank%20you%20for%20supporting%20this%20project!`;
+        }
+
+        window.open(donationLink, '_blank');
+        modal.style.display = 'none';
+    }
 
     donateButton.addEventListener('click', () => {
         const amount = amountInput.value;
