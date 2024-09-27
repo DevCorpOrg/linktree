@@ -1,82 +1,41 @@
-// carousel.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const carousel = document.querySelector('.carousel-container');
     const items = document.querySelectorAll('.shop-item');
-    const prevBtn = document.querySelector('.carousel-button.prev');
-    const nextBtn = document.querySelector('.carousel-button.next');
-    let currentIndex = 0;
     const itemCount = items.length;
     let currentIndex = 0;
 
-    const firstItemClone = items[0].cloneNode(true);
-    const lastItemClone = items[itemCount - 1].cloneNode(true);
+    // Clone first three and last three items (or fewer if less than 3 items)
+    const itemsToClone = Math.min(3, itemCount);
+    for (let i = 0; i < itemsToClone; i++) {
+        const firstClone = items[i].cloneNode(true);
+        const lastClone = items[itemCount - 1 - i].cloneNode(true);
+        carousel.appendChild(firstClone);
+        carousel.insertBefore(lastClone, items[0]);
+    }
 
-    carousel.appendChild(firstItemClone);
-    carousel.insertBefore(lastItemClone, items[0]);
-    const totalItems = itemCount + 2; // 2 clones added
+    const totalItems = itemCount + (itemsToClone * 2);
 
     function setCarouselPosition(index) {
-        carousel.style.transform = `translateX(-${index * (100 / totalItems)}%)`;
+        carousel.style.transform = `translateX(-${index * (100 / 3)}%)`;
     }
 
     function rotateCarousel() {
         currentIndex++;
-    
-        if (currentIndex >= totalItems) {
-            // At the last clone, jump to the real first item
-            carousel.style.transition = 'none'; // Disable transition for the jump
-            currentIndex = 1; // Jump to the real first item
-            setCarouselPosition(currentIndex); // Update position immediately
+        carousel.style.transition = 'transform 0.5s ease';
+        setCarouselPosition(currentIndex);
+
+        if (currentIndex >= itemCount) {
             setTimeout(() => {
-                carousel.style.transition = 'transform 0.5s ease'; // Re-enable transition
-            }, 0); // Ensure transition is reset after jump
-        } else {
-            carousel.style.transition = 'transform 0.5s ease'; // Set transition
-            setCarouselPosition(currentIndex);
+                carousel.style.transition = 'none';
+                currentIndex = 0;
+                setCarouselPosition(currentIndex);
+            }, 500); // Wait for transition to finish
         }
     }
-// Set the initial position to the first real item (since there's a clone at index 0)
-setCarouselPosition(1);
 
-// Start the carousel rotation every 3 seconds
-setInterval(rotateCarousel, 3000);
-});
+    // Set initial position
+    setCarouselPosition(0);
 
-    function showItem(index) {
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % items.length;
-        showItem(currentIndex);
-    }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        showItem(currentIndex);
-    }
-
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetAutoScroll();
-    });
-
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetAutoScroll();
-    });
-
-    let autoScrollInterval;
-
-    function startAutoScroll() {
-        autoScrollInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
-    }
-
-    function resetAutoScroll() {
-        clearInterval(autoScrollInterval);
-        startAutoScroll();
-    }
-
-    startAutoScroll();
+    // Start automatic rotation
+    setInterval(rotateCarousel, 3000);
 });

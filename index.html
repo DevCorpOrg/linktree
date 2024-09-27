@@ -109,7 +109,7 @@
                     <span class="share-dots">&#8942;</span>
                 </a>
                 <a href="https://t.me/LiquidHeartsBot?start=5684888954" class="button">
-                    <img src="https://cdn1.cdn-telegram.org/file/ii0PYHO9xjYo_p0xFwmFLC-ztqLi-kVlb9TJcxjRQOnUX5dpyBtRdSc9CgMgdOisGOFd431_dUVLTIBn3AdLfy6qj5LrGa_EZZF_AnCry3tDiujRfwBnSKmr4QTJZphyFDeM8V20USLDaP8zQGG6aSCHBnVj3YCnj30eTfytOxJNdwSU7fJEyY3ELan2yECCN6UdWIuOs0Z8NjVp1oD9aZN6-5j5s7g94w2yCw6BiVUZqV67ugPPzStKB5J4QhW7gQv5_1U1TaXW4trLeYCXaSF8Bq8hYUOdFexpIy33Tb3leAqiYc_FOmcxLNrWDx_GmpxtavLgtnDfazYRKzLNGw.jpg" alt="Icon">
+                    <img src="https://www.mmosh.app/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fhellbenders-public-c095b-assets%2FhellbendersWebAssets%2Flogo.png" alt="Icon">
                     <span class="button-text">MMOSH, the social protocol for connected communities. Make Money Fun!</span>
                     <span class="share-dots">&#8942;</span>
                 </a>
@@ -164,27 +164,46 @@
                 </div>
             </div>
         </div>
-        <div>
-            <div id="donate-form" class="donate-container">
-                <h2>Support this project</h2>
-                <select id="crypto-select">
-                    <option value="SOL-SOL">Solana (SOL)</option>
-                    <option value="USDC-SOL">USDC on Solana</option>
-                    <option value="MMOSH-SOL">MMOSH on Solana</option>
-                    <option value="ETH-ETH">Ethereum (ETH)</option>
-                    <option value="USDC-ETH">USDC on Ethereum</option>
-                    <option value="MATIC-MATIC">Polygon (MATIC)</option>
-                    <option value="USDC-MATIC">USDC on Polygon</option>
-                    <option value="BTC-BTC">Bitcoin (BTC)</option>
-                </select>
-                <input type="number" id="amount-input" placeholder="Enter amount" step="0.000001" min="0">
-                <p id="equivalent-value"></p> 
-                <button id="donate-button">Donate</button>
+        <div id="donate-form" class="donate-container">
+            <h2>Support this project</h2>
+            <div class="form-group">
+              <label for="crypto-select">Select cryptocurrency:</label>
+              <select id="crypto-select" class="form-control">
+                <option value="SOL-SOL">Solana (SOL)</option>
+                <option value="USDC-SOL">USDC on Solana</option>
+                <option value="MMOSH-SOL">MMOSH on Solana</option>
+                <option value="ETH-ETH">Ethereum (ETH)</option>
+                <option value="USDC-ETH">USDC on Ethereum</option>
+                <option value="MATIC-MATIC">Polygon (MATIC)</option>
+                <option value="USDC-MATIC">USDC on Polygon</option>
+                <option value="BTC-BTC">Bitcoin (BTC)</option>
+              </select>
             </div>
-                <img id="bitcoin-qr" src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/btc.png" width="20%" alt="Bitcoin QR Code">
-                <img id="ethereum-qr" src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/eth.png" width="20%" alt="Ethereum QR Code">
-                <img id="solana-qr" src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/sol.png" width="20%" alt="Solana QR Code">
-        </div>
+            <div class="form-group">
+              <label for="amount-input">Amount:</label>
+              <input type="number" id="amount-input" class="form-control" placeholder="Enter amount" step="0.000001" min="0">
+            </div>
+            <div class="form-group">
+              <label for="equivalent-value">Equivalent value:</label>
+              <input type="text" id="equivalent-value" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="display-currency">Display currency:</label>
+              <select id="display-currency" class="form-control">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+              </select>
+            </div>
+            <button id="donate-button" class="btn btn-primary btn-block">Donate</button>
+          </div>
+          
+          <div class="qr-container">
+            <img src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/btc.png" width="20%" alt="Bitcoin QR Code" class="qr-code" id="bitcoin-qr">
+            <img src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/eth.png" width="20%" alt="Ethereum QR Code" class="qr-code" id="ethereum-qr">
+            <img src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/sol.png" width="20%" alt="Solana QR Code" class="qr-code" id="solana-qr">
+          </div>
         
     </div>
 

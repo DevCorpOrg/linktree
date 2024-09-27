@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const donateButton = document.getElementById('donate-button');
-    const modal = document.getElementById('donate-modal');
-    const closeButton = document.getElementsByClassName('close')[0];
-    const confirmButton = document.getElementById('confirm-donate');
     const cryptoSelect = document.getElementById('crypto-select');
     const amountInput = document.getElementById('amount-input');
     const equivalentValue = document.getElementById('equivalent-value');
+    const displayCurrency = document.getElementById('display-currency');
 
     const walletAddresses = {
         'SOL': 'CqgdDKDu9g9CgGHzB7vXYfSC2MBPg6UwfhSfa7khdtDf',
@@ -22,27 +20,35 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let exchangeRates = {};
+    let fiatRates = {};
 
     async function fetchExchangeRates() {
         try {
-            const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana,ethereum,matic-network,bitcoin,usd-coin&vs_currencies=usd');
+            const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana,ethereum,matic-network,bitcoin,usd-coin&vs_currencies=usd,eur,gbp,jpy');
             const data = await response.json();
             
             exchangeRates = {
-                'SOL': data.solana.usd,
-                'ETH': data.ethereum.usd,
-                'MATIC': data['matic-network'].usd,
-                'BTC': data.bitcoin.usd,
-                'USDC': data['usd-coin'].usd
+                'SOL': data.solana,
+                'ETH': data.ethereum,
+                'MATIC': data['matic-network'],
+                'BTC': data.bitcoin,
+                'USDC': data['usd-coin']
+            };
+
+            fiatRates = {
+                'USD': 1,
+                'EUR': data.bitcoin.eur / data.bitcoin.usd,
+                'GBP': data.bitcoin.gbp / data.bitcoin.usd,
+                'JPY': data.bitcoin.jpy / data.bitcoin.usd
             };
 
             const mmoshPrice = await fetchMMOSHPrice();
-            exchangeRates['MMOSH'] = mmoshPrice ?? 0.00035;
+            exchangeRates['MMOSH'] = { usd: mmoshPrice ?? 0.00035 };
 
             updateEquivalentValue();
         } catch (error) {
             console.error('Failed to fetch exchange rates:', error);
-            equivalentValue.textContent = 'Unable to fetch current exchange rates';
+            equivalentValue.value = 'Unable to fetch current exchange rates';
         }
     }
 
@@ -62,11 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateEquivalentValue() {
         const amount = parseFloat(amountInput.value);
         const [crypto] = cryptoSelect.value.split('-');
-        if (amount && !isNaN(amount) && amount > 0 && exchangeRates[crypto]) {
-            const usdValue = amount * exchangeRates[crypto];
-            equivalentValue.textContent = `Equivalent to approximately $${usdValue.toFixed(2)} USD (1 ${crypto} = $${exchangeRates[crypto].toFixed(6)} USD)`;
+        const currency = displayCurrency.value;
+        
+        if (amount && !isNaN(amount) && amount > 0 && exchangeRates[crypto] && fiatRates[currency]) {
+            const usdValue = amount * exchangeRates[crypto].usd;
+            const displayValue = usdValue * fiatRates[currency];
+            equivalentValue.value = `${displayValue.toFixed(2)} ${currency}`;
         } else {
-            equivalentValue.textContent = '';
+            equivalentValue.value = '';
         }
     }
 
@@ -75,33 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     amountInput.addEventListener('input', updateEquivalentValue);
     cryptoSelect.addEventListener('change', updateEquivalentValue);
-
-    donateButton.onclick = () => {
-        modal.style.display = 'block';
-    }
-
-    closeButton.onclick = () => {
-        modal.style.display = 'none';
-    }
-
-    window.onclick = (event) => {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
-
-    confirmButton.onclick = () => {
-        const amount = amountInput.value;
-        const crypto = cryptoSelect.value;
-        
-        if (!amount || isNaN(amount) || amount <= 0) {
-            alert('Please enter a valid amount');
-            return;
-        }
-
-        window.open(donationLink, '_blank');
-        modal.style.display = 'none';
-    }
+    displayCurrency.addEventListener('change', updateEquivalentValue);
 
     donateButton.addEventListener('click', () => {
         const amount = amountInput.value;
@@ -113,12 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let donationLink;
-        if (crypto === 'SOL') {
-            donationLink = `solana:${solanaAddress}?amount=${amount}&reference=OPTIONAL_REFERENCE&label=Donate%20to%20Project&message=Thank%20you%20for%20supporting%20this%20project!`;
-        } else if (crypto === 'USDC') {
-            donationLink = `solana:${solanaAddress}/transfer?asset=${usdcAddress}&amount=${amount}&reference=OPTIONAL_REFERENCE&label=Donate%20to%20Project&message=Thank%20you%20for%20supporting%20this%20project!`;
-        }
-
         switch(blockchain) {
             case 'SOL':
                 if (crypto === 'SOL') {
@@ -166,4 +143,3 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = donationLink;
     });
 });
-

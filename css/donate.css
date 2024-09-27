@@ -1,54 +1,100 @@
 .donate-container {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 300px;
-    margin: 20px auto;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 40px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .donate-container h2 {
     text-align: center;
     color: #333;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.form-group {
     margin-bottom: 20px;
 }
 
-#crypto-select, #amount-input, #donate-button {
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 600;
+}
+
+.form-control {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#donate-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+    border-radius: 4px;
     font-size: 16px;
-    transition: background-color 0.3s;
+    transition: border-color 0.3s;
 }
 
-#donate-button:hover {
-    background-color: #45a049;
-}
-
-#amount-input {
-    -moz-appearance: textfield;
-}
-
-#amount-input::-webkit-outer-spin-button,
-#amount-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 #equivalent-value {
-    font-size: 14px;
-    color: #666;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
     text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.qr-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.qr-code {
+    width: 20%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .qr-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .qr-code {
+        width: 40%;
+        margin-bottom: 20px;
+    }
 }

@@ -29,10 +29,12 @@
     display: block; 
 }
 
+/* Ensure any text within shop-item is hidden */
+.shop-item > *:not(img) {
+    display: none !important;
+}
 .shop-text {
-    font-weight: bold;
-    margin: 10px 0 5px;
-    color: #333;
+    display: none !important;
 }
 
 .products-count {
