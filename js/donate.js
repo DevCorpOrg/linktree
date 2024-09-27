@@ -99,13 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        let donationLink;
-        if (crypto === 'SOL') {
-            donationLink = `solana:${solanaAddress}?amount=${amount}&reference=OPTIONAL_REFERENCE&label=Donate%20to%20Project&message=Thank%20you%20for%20supporting%20this%20project!`;
-        } else if (crypto === 'USDC') {
-            donationLink = `solana:${solanaAddress}/transfer?asset=${usdcAddress}&amount=${amount}&reference=OPTIONAL_REFERENCE&label=Donate%20to%20Project&message=Thank%20you%20for%20supporting%20this%20project!`;
-        }
-
         window.open(donationLink, '_blank');
         modal.style.display = 'none';
     }
@@ -120,9 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let donationLink;
-        if (!walletAddresses[blockchain]) {
-            alert('Unsupported blockchain selected');
-            return;
+        if (crypto === 'SOL') {
+            donationLink = `solana:${solanaAddress}?amount=${amount}&reference=OPTIONAL_REFERENCE&label=Donate%20to%20Project&message=Thank%20you%20for%20supporting%20this%20project!`;
+        } else if (crypto === 'USDC') {
+            donationLink = `solana:${solanaAddress}/transfer?asset=${usdcAddress}&amount=${amount}&reference=OPTIONAL_REFERENCE&label=Donate%20to%20Project&message=Thank%20you%20for%20supporting%20this%20project!`;
         }
 
         switch(blockchain) {
@@ -172,3 +166,4 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = donationLink;
     });
 });
+
