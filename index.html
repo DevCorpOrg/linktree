@@ -61,7 +61,6 @@
                     <span class="button-text">Kit Baroness Consultation</span>
                     <span class="share-dots">&#8942;</span>
                 </a>
-
                 <h3>My Collections</h3>
                 <a href="https://app.buidlbox.io/buidler/kitbaroness" class="button">
                     <img src="https://cdn.buidlbox.io/user/8b4fa407-0d05-487b-b188-8f94f2190b20/avatar/avatar.blob?t=1727319718904" alt="Icon">
@@ -157,16 +156,19 @@
                 </div>
             </div>
         </div>
-
-        <div class="donate-container">
-            <h3>Support this project</h3>
+        <div id="donate-form" class="donate-container">
+            <h2>Support this project</h2>
             <select id="crypto-select">
-                <option value="SOL">SOL</option>
-                <option value="USDC">USDC</option>
-                <option value="BONK">BONK</option>
-                <!-- Add more Solana-based cryptocurrencies as needed -->
+                <option value="SOL-SOL">Solana (SOL)</option>
+                <option value="USDC-SOL">USDC on Solana</option>
+                <option value="ETH-ETH">Ethereum (ETH)</option>
+                <option value="USDC-ETH">USDC on Ethereum</option>
+                <option value="MATIC-MATIC">Polygon (MATIC)</option>
+                <option value="USDC-MATIC">USDC on Polygon</option>
+                <option value="BTC-BTC">Bitcoin (BTC)</option>
             </select>
-            <input type="number" id="amount-input" placeholder="Amount" step="0.01" min="0">
+            <input type="number" id="amount-input" placeholder="Enter amount" step="0.000001" min="0">
+            <p id="equivalent-value"></p>
             <button id="donate-button">Donate</button>
         </div>
     </div>
