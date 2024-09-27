@@ -29,7 +29,7 @@
 
     <div class="container">
         <img src="https://ugc.production.linktr.ee/753e4b1a-c2e0-47c1-ba64-0829fc75d160_1000000486.jpeg?io=true&size=avatar-v3_0" alt="Kit Baroness, DBA" class="profile-pic">
-        <h1>Kit Baroness, DBA</h1>
+        <h3 style="font-size: 32px;">Kit Baroness, DBA<h3>
 
         <div class="icons">
             <a href="https://instagram.com/kitbaroness" target="_blank"><img src="https://img.icons8.com/?size=50&id=32292&format=png" alt="Instagram"></a>
@@ -50,6 +50,9 @@
                     <div class="shop-item"><a href="https://cyberhol.com"><img src="https://ugc.production.linktr.ee/3acaa7d1-7721-4191-b077-f5a2344fdda3_image.png?io=true&size=square-fit" alt="CyberHOL"></a></div>
                     <div class="shop-item"><a href="https://cryptoversus.io"><img src="https://ugc.production.linktr.ee/7faf03a2-639f-41ef-8db0-c5fdf79582cb_image.png?io=true&size=square-fit" alt="Cryptoversus"></a></div>
                     <div class="shop-item"><a href="https://degenvets.com"><img src="https://ugc.production.linktr.ee/2ba82a08-cccb-4584-bb3b-94d8283ab393_image.png?io=true&size=square-fit" alt="DegenVets"></a></div>
+                    <div class="shop-item"><a href="https://ravensong.com"><img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12678196.png?io=true&size=square-fit" alt="DegenVets"></a></div>
+                    <div class="shop-item"><a href="https://acmewerx.com"><img src="https://storage.builderall.com//franquias/2/7304564/editor-html/12539760.svg?io=true&size=square-fit" alt="DegenVets"></a></div>
+                    <div class="shop-item"><a href="https://x.com/devcorp"><img src="https://github.com/user-attachments/assets/bec58476-a3fd-475f-a9c4-b0677d53979a?io=true&size=square-fit" alt="DevCorp"></a></div>
                 </div>
             </div>
             <p class="shop-text">I Did Dis</p>
@@ -142,46 +145,47 @@
                     <img src="https://ugc.production.linktr.ee/3acaa7d1-7721-4191-b077-f5a2344fdda3_image.png?io=true&size=square-fit" alt="CyberHOL">
                     <div class="shop-item-content">
                         <div class="shop-item-title">Penetration Testing Identify vulnerabilities in your systems before...</div>
-                        <div class="shop-item-price">$5,000</div>
+                        <div class="shop-item-price">$$$</div>
                     </div>
                 </div>
                 <div class="shop-item">
                     <img src="https://ugc.production.linktr.ee/7faf03a2-639f-41ef-8db0-c5fdf79582cb_image.png?io=true&size=square-fit" alt="Cryptoversus">
                     <div class="shop-item-content">
                         <div class="shop-item-title">Crypto Versus | Web2 Bundle into Web3</div>
-                        <div class="shop-item-price">$5,000</div>
+                        <div class="shop-item-price">$$$</div>
                     </div>
                 </div>
                 <div class="shop-item">
                     <img src="https://ugc.production.linktr.ee/2ba82a08-cccb-4584-bb3b-94d8283ab393_image.png?io=true&size=square-fit" alt="DegenVets">
                     <div class="shop-item-content">
                         <div class="shop-item-title">Degen Vets | "The Original Degenerates of the World"</div>
-                        <div class="shop-item-price"></div>
+                        <div class="shop-item-price">$$$</div>
                     </div>
                 </div>
             </div>
         </div>
         <div>
+            <div id="donate-form" class="donate-container">
+                <h2>Support this project</h2>
+                <select id="crypto-select">
+                    <option value="SOL-SOL">Solana (SOL)</option>
+                    <option value="USDC-SOL">USDC on Solana</option>
+                    <option value="MMOSH-SOL">MMOSH on Solana</option>
+                    <option value="ETH-ETH">Ethereum (ETH)</option>
+                    <option value="USDC-ETH">USDC on Ethereum</option>
+                    <option value="MATIC-MATIC">Polygon (MATIC)</option>
+                    <option value="USDC-MATIC">USDC on Polygon</option>
+                    <option value="BTC-BTC">Bitcoin (BTC)</option>
+                </select>
+                <input type="number" id="amount-input" placeholder="Enter amount" step="0.000001" min="0">
+                <p id="equivalent-value"></p> 
+                <button id="donate-button">Donate</button>
+            </div>
                 <img id="bitcoin-qr" src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/btc.png" width="20%" alt="Bitcoin QR Code">
                 <img id="ethereum-qr" src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/eth.png" width="20%" alt="Ethereum QR Code">
                 <img id="solana-qr" src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/sol.png" width="20%" alt="Solana QR Code">
         </div>
-        <div id="donate-form" class="donate-container">
-            <h2>Support this project</h2>
-            <select id="crypto-select">
-                <option value="SOL-SOL">Solana (SOL)</option>
-                <option value="USDC-SOL">USDC on Solana</option>
-                <option value="MMOSH-SOL">MMOSH on Solana</option>
-                <option value="ETH-ETH">Ethereum (ETH)</option>
-                <option value="USDC-ETH">USDC on Ethereum</option>
-                <option value="MATIC-MATIC">Polygon (MATIC)</option>
-                <option value="USDC-MATIC">USDC on Polygon</option>
-                <option value="BTC-BTC">Bitcoin (BTC)</option>
-            </select>
-            <input type="number" id="amount-input" placeholder="Enter amount" step="0.000001" min="0">
-            <p id="equivalent-value"></p>
-            <button id="donate-button">Donate</button>
-        </div>
+        
     </div>
 
     
