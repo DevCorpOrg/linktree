@@ -14,6 +14,9 @@
     <script src="js/topbuttons.js" defer></script>
     <script src="js/shop.js" defer></script>
     <script src="js/donate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.2/web3.min.js"></script>
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
 </head>
 <body>
     <div class="top-left">
@@ -164,19 +167,21 @@
                 </div>
             </div>
         </div>
+        
         <div id="donate-form" class="donate-container">
             <h2>Support this project</h2>
+
             <div class="form-group">
               <label for="crypto-select">Select cryptocurrency:</label>
               <select id="crypto-select" class="form-control">
-                <option value="SOL-SOL">Solana (SOL)</option>
+                <option value="SOL">Solana (SOL)</option>
                 <option value="USDC-SOL">USDC on Solana</option>
                 <option value="MMOSH-SOL">MMOSH on Solana</option>
-                <option value="ETH-ETH">Ethereum (ETH)</option>
+                <option value="ETH">Ethereum (ETH)</option>
                 <option value="USDC-ETH">USDC on Ethereum</option>
-                <option value="MATIC-MATIC">Polygon (MATIC)</option>
+                <option value="MATIC">Polygon (MATIC)</option>
                 <option value="USDC-MATIC">USDC on Polygon</option>
-                <option value="BTC-BTC">Bitcoin (BTC)</option>
+                <option value="BTC">Bitcoin (BTC)</option>
               </select>
             </div>
             <div class="form-group">
@@ -196,15 +201,25 @@
                 <option value="JPY">JPY</option>
               </select>
             </div>
-            <button id="donate-button" class="btn btn-primary btn-block">Donate</button>
+            <div class="qr-container"></div>
+                <img src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/btc.png" width="20%" alt="Bitcoin QR Code" class="qr-code" id="bitcoin-qr">
+                <img src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/eth.png" width="20%" alt="Ethereum QR Code" class="qr-code" id="ethereum-qr">
+                <img src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/sol.png" width="20%" alt="Solana QR Code" class="qr-code" id="solana-qr">
+              </div>
+            <button id="donate-button" class="button">Donate with Wallet</button>
+            <div id="fallback-options" style="display: none;">
+              <h3>Alternative donation methods:</h3>
+              <div id="qr-code" class="text-center mb-3"></div>
+              <div class="form-group">
+                <label for="wallet-address">Wallet Address:</label>
+                <div class="input-group">
+                  <input type="text" id="wallet-address" class="form-control" readonly>
+                  <button id="copy-address" class="btn btn-secondary">Copy</button>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <div class="qr-container">
-            <img src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/btc.png" width="20%" alt="Bitcoin QR Code" class="qr-code" id="bitcoin-qr">
-            <img src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/eth.png" width="20%" alt="Ethereum QR Code" class="qr-code" id="ethereum-qr">
-            <img src="https://raw.githubusercontent.com/DevCorpOrg/linktree/main/img/qr/sol.png" width="20%" alt="Solana QR Code" class="qr-code" id="solana-qr">
-          </div>
-        
+          <h3 style="font-size: 8px;"">Fork the Repository<a href="https://github.com/devcorporg/linktree">@Kitbaroness</a></h3>
     </div>
 
     
