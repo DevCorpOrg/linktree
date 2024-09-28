@@ -12,7 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const walletAddresses = {
         'SOL': 'CqgdDKDu9g9CgGHzB7vXYfSC2MBPg6UwfhSfa7khdtDf',
         'ETH': '0xC261896e9c6a346653A1B227D84579B1EabEc46E',
+        'ETH-USDC': '0xC261896e9c6a346653A1B227D84579B1EabEc46E',
         'MATIC': '0xC261896e9c6a346653A1B227D84579B1EabEc46E',
+        'SOL-USDC': 'CqgdDKDu9g9CgGHzB7vXYfSC2MBPg6UwfhSfa7khdtDf',
+        'SOL-MMOSH': '0xC261896e9c6a346653A1B227D84579B1EabEc46E',
+        'MATIC-USDC': '0xC261896e9c6a346653A1B227D84579B1EabEc46E',
         'BTC': 'bc1qk4vy0ksj327jcduyazuqzsvfrv7ww97q2f89ac'
     };
 
