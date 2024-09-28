@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     toTokenAccount[0],
                                     window.solana.publicKey,
                                     [],
-                                    amount * (crypto === 'USDC' ? 1e6 : 1e9) // USDC has 6 decimals, MMOSH has 9
+                                    amount * (crypto === 'USDC' ? 1e6 : 1e9) 
                                 )
                             );
                         }
